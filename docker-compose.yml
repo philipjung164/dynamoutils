@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  dynamodb:
+    image: cnadiminti/dynamodb-local
+
+  app:
+    build: .
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    depends_on:
+      - dynamodb
